@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Party Fathy & Chelsea</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Meie+Script&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="header">
+                <div class="logo">
+                    <img src="/asset/Logo/Logo2.png" alt="logo">
+                </div>
+                <div class="nav-link">
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                    <div class="btn">
+                        <a href="#rsvp" class="btn-primary">RSVP</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="line"></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <img src="/asset/Group 1.png">
+            <div class="date-badge">
+                <span>RSVP</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <main>
+        <section class="ivt">
+            <div class="container">
+                <div class="couple-image">
+                    <!-- Placeholder untuk foto pasangan -->
+                    <div class="image-placeholder"></div>
+                </div>
+                <div class="ivt-content">
+                    <h2>December 1st <br> at <br>SMK TELKOM</h2>
+                    <div class="countdown">
+                        <div class="countdown-item">
+                            <span id="days">00</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours">00</span>
+                            <p>Hours</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes">00</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds">00</span>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h1>Our Wedding Day</h1>
+                <p>With hearts full of love, we invite you to join us as we begin a new chapter of our lives. 
+                Your presence will make our celebration even more meaningful.We are grateful for your prayers, blessings, and endless support.</p>
+                <p class="signature">Fathy and Chelsea</p>
+            </div>
+        </section>
+
+        <section class="rsvp">
+            <div class="container">
+                <h2>RSVP</h2>
+                <p>We warmly invite you to confirm your attendance at the wedding ceremony of Fathy and Chelsea.
+                Your response means a lot to us as we prepare a beautiful celebration for everyone.
+                Please submit your RSVP before December 1st.</p>
+                <div class="tdy">
+                    <p class="timeline">Our special day begins in the main lobby area. Please gather at 12.30 PM.</p>
+                    <div class="rsvp-img">
+                        <!-- Placeholder untuk gambar-gambar -->
+                        <div class="img-item"></div>
+                        <div class="img-item"></div>
+                        <div class="img-item"></div>
+                        <div class="img-item"></div>
+                        <div class="img-item"></div>
+                    </div>
+                    <div class="rsvp-form">
+                        <form id="wedding-rsvp">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="" disabled selected>Select number of guests</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="attendance">Will you attend?</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="yes" name="attendance" value="yes" required>
+                                    <label for="yes">Yes, I'll be there</label>
+                                    <input type="radio" id="no" name="attendance" value="no" required>
+                                    <label for="no">Sorry, I can't make it</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message for the couple (optional)</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Submit RSVP</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="closing">
+            <div class="container">
+                <h2>Thank You</h2>
+                <p>We are truly grateful to have you celebrate this beautiful moment with us. Your prayers and warm wishes add meaning to our journey. May this day be filled with joy, love, and unforgettable memories.</p>
+                <p class="closing-signature">With love,</p>
+                <h3>Fathy & Chelsea</h3>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fathy & Chelsea Wedding. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/5ea0eadb61.js" crossorigin="anonymous"></script>
+</body>
+</html>
