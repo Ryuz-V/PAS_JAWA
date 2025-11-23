@@ -242,7 +242,7 @@ header {
 
 .couple-image .image-placeholder {
     width: 100%;
-    height: 400px;
+    height: 550px;
     background: linear-gradient(135deg, var(--accent-color) 0%, #8B7355 100%);
     border-radius: 10px;
     box-shadow: var(--shadow);
@@ -269,6 +269,7 @@ header {
     justify-content: center;
     gap: 2rem;
     margin-top: 2rem;
+    margin-left: 25px;
 }
 
 .countdown-item {
@@ -303,15 +304,7 @@ header {
 .about {
     padding: 5rem 0;
     background: var(--main-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;     
     text-align: center;
-}
-
-.about h1, p {
-        margin-left: 20px;
 }
 
 .about h1 {
@@ -319,15 +312,204 @@ header {
     font-size: var(--header-font-size);
     color: rgb(61, 67, 81);
     margin-bottom: 1rem;
+    text-align: center;
 }
 
-.about p {
+.about > .container > p {
     font-size: var(--paragraph-font-size);
     color: rgb(61, 67, 81);
-    max-width: 800px;
+    max-width: 600px;
+    margin: 0 auto 3rem;
     line-height: 1.8;
     text-align: center;
 }
+
+/* Container untuk baris schedule */
+.img-sch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    position: relative;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Garis timeline vertikal di tengah */
+.img-sch::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 2px;
+    height: 80%;
+    background: var(--accent-color);
+    z-index: 1;
+}
+
+/* Item schedule - Baris 1 (kiri) */
+.img-item-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--accent-color);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Penempatan khusus untuk item baris 1 */
+.img-sch:first-of-type .img-item-1:nth-child(1) {
+    margin-right: auto;
+    margin-left: 0;
+}
+.img-sch:first-of-type .img-item-1:nth-child(2) {
+    margin: 0 auto;
+}
+.img-sch:first-of-type .img-item-1:nth-child(3) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Item schedule - Baris 2 (kanan) */
+.img-item-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--accent-color);
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+/* Penempatan khusus untuk item baris 2 */
+.img-sch:last-of-type .img-item-2:nth-child(1) {
+    margin-right: auto;
+    margin-left: 0;
+}
+.img-sch:last-of-type .img-item-2:nth-child(2) {
+    margin: 0 auto;
+}
+.img-sch:last-of-type .img-item-2:nth-child(3) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Gambar */
+.img-item-1 img,
+.img-item-2 img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+/* Waktu */
+.img-item-1 h2,
+.img-item-2 h2 {
+    font-family: var(--third-font);
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Deskripsi */
+.img-item-1 p,
+.img-item-2 p {
+    font-size: 1rem;
+    color: rgb(61, 67, 81);
+    text-transform: capitalize;
+    margin: 0;
+    font-weight: 600;
+}
+
+/* Garis penghubung dari item ke timeline */
+.img-item-1::before,
+.img-item-2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    background: var(--accent-color);
+    z-index: 1;
+}
+
+/* Garis untuk item tengah - lebih panjang */
+.img-sch:first-of-type .img-item-1:nth-child(2)::before,
+.img-sch:last-of-type .img-item-2:nth-child(2)::before {
+    width: 40px;
+}
+
+/* Hover Effects */
+.img-item-1:hover,
+.img-item-2:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 1);
+    transition: all 0.3s ease;
+}
+
+.img-item-1:hover img,
+.img-item-2:hover img {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+/* Animasi */
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.img-item-1 {
+    animation: fadeInLeft 0.6s ease forwards;
+}
+
+.img-item-2 {
+    animation: fadeInRight 0.6s ease forwards;
+}
+
+/* Staggered animation */
+.img-sch:first-of-type .img-item-1:nth-child(1) { animation-delay: 0.1s; }
+.img-sch:first-of-type .img-item-1:nth-child(2) { animation-delay: 0.2s; }
+.img-sch:first-of-type .img-item-1:nth-child(3) { animation-delay: 0.3s; }
+
+.img-sch:last-of-type .img-item-2:nth-child(1) { animation-delay: 0.4s; }
+.img-sch:last-of-type .img-item-2:nth-child(2) { animation-delay: 0.5s; }
+.img-sch:last-of-type .img-item-2:nth-child(3) { animation-delay: 0.6s; }
 
 /* RSVP Section */
 .rsvp {
