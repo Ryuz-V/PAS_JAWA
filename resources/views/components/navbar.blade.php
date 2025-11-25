@@ -1,26 +1,26 @@
-<!-- Dummy Navbar -->
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-<nav class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
-    <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+<header>
+        <nav>
+            <div class="header">
+                <div class="logo">
+                    <img src="{{ asset('images/Logo/logo2.png') }}" alt="logo">
+                    <img src="{{ asset('images/Logo/logo2.png') }}" alt="Logo">
+                </div>
+                <div class="nav-link">
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Schedule</a></li>
+                        <li><a href="#">Product</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                    <div class="btn">
+                        <a href="#rsvp" class="btn-primary">RSVP</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="line"></div>
+</header>
 
-        {{-- LOGO / TITLE --}}
-        <div class="flex items-center space-x-2">
-            <div class="w-8 h-8 bg-[#C19A6B] rounded-full"></div>
-            <span class="text-lg font-semibold">Pernikahan</span>
-        </div>
-
-        {{-- MENU --}}
-        <ul class="flex space-x-6 text-sm">
-            <li>
-                <a href="{{ url('/') }}" class="hover:text-[#C19A6B]">Beranda</a>
-            </li>
-            <li>
-                <a href="{{ url('/rsvp') }}" class="hover:text-[#C19A6B]">RSVP</a>
-            </li>
-            <li>
-                <a href="{{ url('/thankyou') }}" class="hover:text-[#C19A6B]">Ucapan</a>
-            </li>
-        </ul>
-
-    </div>
-</nav>
+<script src="{{ asset('script.js') }}"></script>

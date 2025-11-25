@@ -1,4 +1,4 @@
-<!-- Dummy Footer -->
+<!-- Dummy Footer
 <footer class="bg-[#4E342E] text-[#FFF8E7] mt-20 py-10">
     <div class="max-w-6xl mx-auto text-center">
 
@@ -13,4 +13,4 @@
         </div>
 
     </div>
-</footer>
+</footer> -->

@@ -1,119 +1,246 @@
 @extends('layouts.main')
 
-@section('title', 'Beranda')
+@section('title', 'Fhatayy & Chelsya Wedding')
 
 @section('content')
 
-{{-- Sambutan --}}
-<div class="max-w-3xl mx-auto text-center py-20">
-    <p class="text-[#6D4C41] leading-relaxed text-lg mb-4">
-        Dengan penuh rasa syukur, kami mengundang Bapak/Ibu/Saudara/i
-        untuk hadir pada acara pernikahan kami.
-    </p>
+{{-- SECTION 1 — WELCOME (HERO) --}}
+<section class="hero">
+        <div class="hero-content">
+            <img src="{{ asset('images/nama.png') }}" alt="Nama mempelai">
+            <div class="date-badge">
+                <span>RSVP</span>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+    
+    <main>
+        <section class="ivt">
+            <div class="container">
+                <div class="couple-image">
+                    <!-- fotonya posisi dikiri -->
+                    <div class="image-placeholder"></div>
+                </div>
+                <div class="ivt-content">
+                    <!-- posisi ditengah -->
+                    <h2>How We Meet</h2>
+                    <p>I first saw Chelsea in the Fall of 2008 when we started our undergrad. I was instantly attracted to her but was far too nervous to speak to her. I had told my friend I liked her and news had traveled fast and she soon found out. Her first reaction was "Who is Fhaty?" and she began searching for me in the class. She started to take notice of me and no matter how boring the lecture was, we never missed a class after that. After a good few months I finally plucked up the courage to ask her out and the rest is history :)</p>
+                </div>
+                <div class="couple-image">
+                    <!-- fotonya posisi dikanan -->
+                    <div class="image-placeholder-2"></div>
+                </div>
+            </div>
+        </section>
 
-    <h1 class="text-4xl font-bold text-[#8B4513] mb-2">
-        Fhataayy & Chelsya
-    </h1>
-</div>
+        <section class="about">
+            <div class="container">
+                <h1>Schedule</h1>
+                <p>The timeline of our beginning. Join us in every step of the way.</p>
+                <div class="img-sch">
+                    <div class="img-item-1">
+                        <img src="/asset/c7b8b723-734e-4faf-afb7-80f146fc2ddd 2.png" alt="siraman">
+                        <h2>08.00</h2>
+                        <p>mandrus</p>
+                    </div>
+                    <div class="img-item-1">
+                        <img src="/asset/c7b8b723-734e-4faf-afb7-80f146fc2ddd 2.png" alt="">
+                        <h2>08.45</h2>
+                        <p>ijab kobul</p>
+                    </div>
+                    <div class="img-item-1">
+                        <img src="/asset/c7b8b723-734e-4faf-afb7-80f146fc2ddd 2.png" alt="">
+                        <h2>09.00</h2>
+                        <p>panggih manten</p>
+                    </div>
+                </div>
+                <div class="img-sch">
+                    <div class="img-item-2">
+                        <img src="/asset/c7b8b723-734e-4faf-afb7-80f146fc2ddd 2.png" alt="">
+                        <h2>09.30</h2>
+                        <p>party</p>
+                    </div>
+                    <div class="img-item-2">
+                        <img src="/asset/w" alt="">
+                        <h2>09.45</h2>
+                        <p>kuman</p>
+                    </div>
+                    <div class="img-item-2">
+                        <img src="" alt="">
+                        <h2>10.00</h2>
+                        <p>end</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-{{-- Form RSVP (dummy) --}}
-<div class="max-w-md mx-auto py-10 px-6 border-t border-gray-300">
-
-    <h1 class="text-5xl font-[cursive] text-center mb-4">rsvp</h1>
-
-    <p class="text-center text-gray-600 mb-10">Batas paling lambat 30 November 2025</p>
-
-    {{-- NAMA --}}
-    <label class="block text-sm text-gray-700 font-medium mb-1">Nama *</label>
-    <input 
-        type="text" 
-        class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 mb-6"
-        placeholder="Nama Lengkap"
-    >
-
-    {{-- PILIHAN HADIR (RADIO) --}}
-    <p class="text-gray-700 font-medium mb-2">Kehadiran *</p>
-
-    <div class="space-y-3 mb-6">
-        <label class="flex items-center gap-3 text-gray-700">
-            <input 
-                type="radio" 
-                name="kehadiran" 
-                value="hadir" 
-                id="radio-hadir"
-                class="w-4 h-4"
-            >
-            Hadir
-        </label>
-
-        <label class="flex items-center gap-3 text-gray-700">
-            <input 
-                type="radio" 
-                name="kehadiran" 
-                value="tidakhadir" 
-                id="radio-tidak-hadir"
-                class="w-4 h-4"
-            >
-            Tidak Hadir
-        </label>
+<section class="product">
+    <div class="container">
+        <h2>Our Product</h2>
+        <p>We are delighted to share with you a selection of our favorite products that hold special meaning in our journey together. Each item has been carefully chosen to reflect our tastes and the memories we've created as a couple. We hope you find something that resonates with you as much as it does with us.</p>
+        <div class="product-gallery">
+            <div class="product-item">
+                <img src="/asset/product/product1.jpg" alt="Product 1">
+                <h3>Product Name 1</h3>
+                <p>$29.99</p>
+            </div>
+            <div class="product-item">
+                <img src="/asset/product/product2.jpg" alt="Product 2">
+                <h3>Product Name 2</h3>
+                <p>$39.99</p>
+            </div>
+            <div class="product-item">
+                <img src="/asset/product/product3.jpg" alt="Product 3">
+                <h3>Product Name 3</h3>
+                <p>$49.99</p>
+            </div>
     </div>
+</section>
 
-    {{-- JUMLAH YANG HADIR (AUTO SHOW) --}}
-    <div id="jumlah-wrapper" class="hidden transition-all duration-300">
-        <label class="block text-sm text-gray-700 font-medium mb-1">Jumlah yang hadir</label>
-        <input 
-            type="number"
-            min="1"
-            class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 mb-8"
-            placeholder="Contoh: 2 orang"
-        />
-    </div>
+        <section class="rsvp">
+            <div class="container">
+                <h2>RSVP</h2>
+                <p>Please confirm your attendance by 01.12.2025</p>
+                <div class="tdy">
+                    <div class="rsvp-form">
+                        <form id="wedding-rsvp">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests</label>
+                                <select id="guests" name="guests" required>
+                                    <option value="" disabled selected>Select number of guests</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5+</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="attendance">Will you attend?</label>
+                                <div class="radio-group">
+                                    <input type="radio" id="yes" name="attendance" value="yes" required>
+                                    <label for="yes">Yes, I'll be there</label>
+                                    <input type="radio" id="no" name="attendance" value="no" required>
+                                    <label for="no">Sorry, I can't make it</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message for the couple</label>
+                                <textarea id="message" name="message" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Submit RSVP</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    {{-- EMAIL --}}
-    <label class="block text-sm text-gray-700 font-medium mb-1">Email</label>
-    <input 
-        type="email" 
-        class="w-full border-b border-gray-400 focus:outline-none focus:border-black py-2 mb-8"
-        placeholder="XIPPLG6@kece.com"
-    >
+        <section class="closing">
+            <div class="container">
+                <h2>Counting the Days to Our Wedding</h2>
+                <!-- count down -->
+                <div class="countdown">
+                        <div class="countdown-item">
+                            <span id="days">00</span>
+                            <p>Days</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="hours">00</span>
+                            <p>Hours</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="minutes">00</span>
+                            <p>Minutes</p>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="seconds">00</span>
+                            <p>Seconds</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Animasi Navbar Scroll dengan Height Mengecil
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > 50) { // Threshold lebih rendah untuk respons lebih cepat
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
-    {{-- FOOD CHOICE --}}
-    <p class="text-gray-700 font-medium mb-4">
-        Pilih Hidangan Pembuka:
-    </p>
-
-    <div class="space-y-3 mb-10">
-        <label class="flex items-center gap-3 text-gray-700">
-            <input type="checkbox" class="w-4 h-4 border-gray-500">
-            Gudeg
-        </label>
-
-        <label class="flex items-center gap-3 text-gray-700">
-            <input type="checkbox" class="w-4 h-4 border-gray-500">
-            Rawon
-        </label>
-    </div>
-
-    {{-- BUTTON --}}
-    <button class="w-full bg-black text-white py-3 rounded-full tracking-wide hover:bg-gray-800 transition">
-        Kirim
-    </button>
-
-</div>
-
-<script>
-    // Radio button kehadiran logic
-    const radioHadir = document.getElementById('radio-hadir');
-    const radioTidakHadir = document.getElementById('radio-tidak-hadir');
-    const jumlahWrapper = document.getElementById('jumlah-wrapper');
-
-    radioHadir.addEventListener('change', () => {
-        jumlahWrapper.classList.remove('hidden');
+// Inisialisasi saat halaman dimuat
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const scrollPosition = window.scrollY;
+    
+    if (scrollPosition > 50) {
+        header.classList.add('scrolled');
+    }
+    
+    // Smooth scroll untuk anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
+});
 
-    radioTidakHadir.addEventListener('change', () => {
-        jumlahWrapper.classList.add('hidden');
-    });
-</script>
+
+        // Target date: 2 December 2025, 07:30 AM (WIB)
+const targetDate = new Date("December 2, 2025 07:30:00").getTime();
+
+const countdownFunc = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Update HTML
+    document.getElementById("days").innerHTML = days < 10 ? "0" + days : days;
+    document.getElementById("hours").innerHTML = hours < 10 ? "0" + hours : hours;
+    document.getElementById("minutes").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+    document.getElementById("seconds").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+    // If event date has passed
+    if (distance < 0) {
+        clearInterval(countdownFunc);
+        document.querySelector(".countdown").innerHTML = `
+            <div class="text-center text-xl font-semibold text-green-700">
+                The Wedding Has Started ❤️
+            </div>
+        `;
+    }
+}, 1000);
+
+        </script>
+    <script src="{{ asset('script.js') }}"></script>
+    <script src="https://kit.fontawesome.com/5ea0eadb61.js" crossorigin="anonymous"></script>
 
 @endsection

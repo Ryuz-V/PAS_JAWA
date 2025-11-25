@@ -1,0 +1,968 @@
+/* Reset dan Base Styles */
+:root {
+    --main-color: #F3EFE0;
+    --sec-color: #D2CDC9;
+    --cd-color: #DDDDDF;
+    --accent-color: #A68B7B;
+    --font-main-color: #ffffff;
+    --font-sec-color: #000000;
+    --main-font: 'Open Sans', sans-serif;
+    --sec-font: 'Meie Script', cursive;
+    --third-font: 'Caudex', serif;
+    --header-font-size: 3.5rem;
+    --subheader-font-size: 2.5rem;
+    --paragraph-font-size: 1rem;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--main-font);
+    line-height: 1.6;
+    color: var(--font-sec-color);
+    overflow-x: hidden;
+    background-color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header & Navigation */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+}
+
+.line {
+    height: 0.1px;
+    background: white;
+    width: 79.5%;
+    margin: 0 auto;
+    opacity: 30%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Logo Container */
+.logo {
+    position: relative;
+    width: 50px;
+    height: 50px;
+}
+
+/* Aturan untuk semua gambar logo */
+.logo img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px; /* Ukuran tetap */
+    height: 50px; /* Ukuran tetap */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    object-fit: contain; /* Pastikan gambar tidak terdistorsi */
+}
+
+/* Logo pertama (Logo2.png) - visible saat tidak scroll */
+.logo img:first-child {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(0) invert(1); /* Putih untuk background gelap */
+        height: 50px;
+}
+
+.logo img:last-child {
+    opacity: 0;
+    transform: scale(0.8);
+    filter: none; 
+}
+
+header.scrolled .logo img:first-child {
+    opacity: 0;
+    transform: scale(0.8);
+}
+
+header.scrolled .logo img:last-child {
+    opacity: 1;
+    transform: scale(1);
+    height: 50px;
+    margin-bottom: 30px;
+    margin-left: 5px;
+}
+
+/* Ukuran logo ketika scrolled */
+header.scrolled .logo {
+    width: 40px;
+    height: 40px;
+}
+
+header.scrolled .logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-grow: 1;
+}
+
+.nav-link ul {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+    margin-left: 3.5rem;
+    margin-top: 10px;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: var(--font-main-color);
+    font-weight: 100;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+
+.nav-link a:hover {
+    color: var(--font-sec-color);
+}
+
+.btn {
+    margin-left: auto;
+}
+
+.btn-primary {
+    color: var(--font-main-color);
+    padding: 0.5rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.8s ease, color 0.8s ease, border-color 0.8s ease;
+    border: 2px solid var(--font-main-color);
+    font-size: 1rem;
+    background: transparent;
+}
+
+.btn-primary:hover {
+    background: var(--font-main-color);
+    color: white;
+}
+
+/* Animasi Navbar Scroll */
+header {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+header.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 1rem 0;
+    height: 100px;
+}
+
+header.scrolled .header {
+    padding: 1rem 6rem;
+    transform: translateY(-5px);
+}
+
+header.scrolled .nav-link a {
+    color: var(--font-sec-color);
+    font-size: 0.95rem;
+    
+}
+
+header.scrolled .btn-primary {
+    color: var(--font-sec-color);
+    border-color: var(--font-sec-color);
+    padding: 0.4rem 1.8rem;
+    font-size: 0.9rem;
+}
+
+header.scrolled .btn-primary:hover {
+    background: var(--font-sec-color);
+    color: white;
+}
+
+header.scrolled .line {
+    opacity: 0;
+}
+
+header.scrolled + .hero {
+    margin-top: 70px;
+    transition: margin-top 0.4s ease;
+}
+
+.header, .nav-link a, .btn-primary, .line {
+    transition: all 0.3s ease;
+}
+
+/* Hero Section */
+.hero {
+    height: 95vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: -1;
+}
+
+.hero-content {
+    z-index: 2;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-content img {
+    max-width: 400px;
+    transform: translateY(100px);
+    margin-left: 40px;
+    filter: brightness(0) invert(1);
+}
+
+.date-badge {
+    border: 2px solid var(--font-main-color);
+    padding: 0.8rem 3rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--font-main-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 200px;
+}
+
+.date-badge:hover {
+    background: transparent;
+    background: var(--font-main-color);
+    color: black;
+    transform: translateY(-2px);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+    z-index: 2;
+}
+
+.scroll-indicator i {
+    font-size: 2rem;
+    color: var(--font-main-color);
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0) translateX(-50%);
+    }
+    40% {
+        transform: translateY(-10px) translateX(-50%);
+    }
+    60% {
+        transform: translateY(-5px) translateX(-50%);
+    }
+}
+
+/* Invitation Section */
+.ivt {
+    padding: 8rem 0;
+    background: #fafafa;
+}
+
+.ivt .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.couple-image {
+    flex: 1;
+}
+
+.image-placeholder,
+.image-placeholder-2 {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    
+}
+
+.image-placeholder-2 {
+    
+}
+
+.ivt-content {
+    flex: 1.2;
+    text-align: center;
+    padding: 0 30px;
+}
+
+.ivt-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 30px;
+    position: relative;
+        font-family: var(--third-font);
+    font-size: var(--header-font-size);
+    color: rgb(61, 67, 81);
+    margin-bottom: 1rem;
+    text-align: center;
+    margin-left: 10px;
+}
+
+.ivt-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 2px;
+    background: #d4af37;
+}
+
+.ivt-content p {
+    margin-top: 50px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #666;
+    text-align: center;
+}
+
+/* schedule Section */
+.about {
+    padding: 5rem 0;
+    background: var(--main-color);
+    text-align: center;
+}
+
+.about h1 {
+    font-family: var(--third-font);
+    font-size: var(--header-font-size);
+    color: rgb(61, 67, 81);
+    margin-bottom: 1rem;
+    text-align: center;
+        margin-left: 10px;
+}
+
+.about > .container > p {
+    font-size: var(--paragraph-font-size);
+    color: rgb(61, 67, 81);
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    text-align: center;
+        margin-left: 285px;
+}
+
+/* Container untuk baris schedule */
+.img-sch {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    position: relative;
+    max-width: 1100px;
+    margin-left: 0;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+/* Item schedule - Baris 1 (kiri) */
+.img-item-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    padding: 2.5rem 1.5rem;
+    border-left: 2px solid var(--accent-color);
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    min-height: 180px;
+}
+
+/* Penempatan khusus untuk item baris 1 */
+.img-sch:first-of-type .img-item-1:nth-child(1) {
+    margin-right: auto;
+    margin-left: 0;
+}
+.img-sch:first-of-type .img-item-1:nth-child(2) {
+    margin: 0 auto;
+}
+.img-sch:first-of-type .img-item-1:nth-child(3) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Item schedule - Baris 2 (kanan) */
+.img-item-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 280px;
+    padding: 2.5rem 1.5rem;
+    border-left: 2px solid var(--accent-color);
+    border-right: none;
+    border-top: none;
+    border-bottom: none;
+    position: relative;
+    z-index: 2;
+    text-align: left;
+    min-height: 180px;
+}
+
+/* Penempatan khusus untuk item baris 2 */
+.img-sch:last-of-type .img-item-2:nth-child(1) {
+    margin-right: auto;
+    margin-left: 0;
+}
+.img-sch:last-of-type .img-item-2:nth-child(2) {
+    margin: 0 auto;
+}
+.img-sch:last-of-type .img-item-2:nth-child(3) {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Gambar - posisi di kanan bawah */
+.img-item-1 img,
+.img-item-2 img {
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    bottom: 15px;
+    left: 180px;
+    margin-bottom: 0;
+}
+
+.img-item-1 .text-content,
+.img-item-2 .text-content {
+    flex: 1;
+    width: 100%;
+}
+
+/* Waktu */
+.img-item-1 h2,
+.img-item-2 h2 {
+    font-family: var(--third-font);
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+}
+
+/* Deskripsi */
+.img-item-1 p,
+.img-item-2 p {
+    font-size: 1.3rem;
+    color: rgb(61, 67, 81);
+    text-transform: capitalize;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* Garis penghubung dari item ke timeline */
+.img-item-1::before,
+.img-item-2::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    height: 3px;
+    background: var(--accent-color);
+    z-index: 1;
+}
+
+/* Garis untuk item kiri */
+.img-item-1::before {
+    width: 35px;
+    transform: translateY(-50%);
+}
+
+/* Garis untuk item kanan */
+.img-item-2::before {
+    width: 35px;
+    transform: translateY(-50%);
+}
+
+.img-sch:first-of-type .img-item-1:nth-child(2)::before,
+.img-sch:last-of-type .img-item-2:nth-child(2)::before {
+    width: 50px;
+}
+
+/* Product Section */
+.product {
+    padding: 5rem 0;
+    background: #E8E4D9;
+    text-align: center;
+}
+
+.product h2 {
+    font-family: var(--third-font);
+    font-size: var(--header-font-size);
+    color: rgb(61, 67, 81);
+    margin-bottom: 1rem;
+    margin-left: 20px;
+}
+
+.product > .container > p {
+    font-size: var(--paragraph-font-size);
+    color: rgb(61, 67, 81);
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+        margin-left: 75px;
+}
+
+.product-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.product-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 5rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+}
+
+.product-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    border-color: var(--accent-color);
+    background: rgba(255, 255, 255, 1);
+}
+
+.product-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--accent-color);
+}
+
+.product-item h3 {
+    font-family: var(--third-font);
+    font-size: 1.4rem;
+    color: rgb(61, 67, 81);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.product-item p {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Responsive Design untuk Product Section */
+@media (max-width: 1024px) {
+    .product-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        max-width: 700px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product {
+        padding: 4rem 0;
+    }
+    
+    .product-gallery {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 400px;
+    }
+    
+    .product-item {
+        padding: 1.5rem;
+    }
+    
+    .product-item img {
+        height: 180px;
+    }
+    
+    .product-item h3 {
+        font-size: 1.3rem;
+    }
+    
+    .product-item p {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product {
+        padding: 3rem 0;
+    }
+    
+    .product-gallery {
+        max-width: 300px;
+    }
+    
+    .product-item {
+        padding: 1rem;
+    }
+    
+    .product-item img {
+        height: 150px;
+    }
+    
+    .product-item h3 {
+        font-size: 1.2rem;
+    }
+    
+    .product-item p {
+        font-size: 1rem;
+    }
+}
+
+/* Animasi untuk Product Items */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.product-item {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.product-item:nth-child(1) { animation-delay: 0.1s; }
+.product-item:nth-child(2) { animation-delay: 0.2s; }
+.product-item:nth-child(3) { animation-delay: 0.3s; }
+
+
+
+/* RSVP Section */
+.rsvp {
+    padding: 5rem 0;
+    background: var(--main-color);
+}
+
+.rsvp h2 {
+    text-align: center;
+    font-size: var(--header-font-size);
+    color: rgb(61, 67, 81);
+    margin-bottom: 1rem;
+    font-family: var(--third-font);
+}
+
+.rsvp > .container > p {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    color: var(--font-sec-color);
+    font-size: var(--paragraph-font-size);
+}
+
+.rsvp-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-group {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--font-sec-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 0;
+    border: none;
+    border-bottom: 2px solid var(--cd-color);
+    border-radius: 0;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    font-family: var(--main-font);
+    color: var(--font-sec-color);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-bottom-color: var(--accent-color);
+    box-shadow: none;
+}
+
+/* Style khusus untuk select */
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A68B7B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 2rem;
+}
+
+/* Style untuk radio group */
+.radio-group {
+    display: flex;
+    gap: 3rem;
+    margin-top: 1rem;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: normal;
+    cursor: pointer;
+    color: var(--font-sec-color);
+    text-transform: none;
+    letter-spacing: normal;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.radio-group input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.radio-group label:hover {
+    color: var(--accent-color);
+}
+
+/* Style untuk textarea */
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+    border: 2px solid var(--cd-color);
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group textarea:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(166, 139, 123, 0.1);
+}
+
+/* Submit button style */
+.submit-btn {
+    width: 100%;
+    background: var(--accent-color);
+    color: var(--font-main-color);
+    padding: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 2rem;
+}
+
+.submit-btn:hover {
+    background: #8B7355;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(166, 139, 123, 0.3);
+}
+
+/* Animasi untuk form elements */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    position: relative;
+}
+
+/* Garis bawah yang animated */
+.form-group::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.form-group:focus-within::after {
+    width: 100%;
+}
+
+/* Placeholder style */
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #999;
+    font-style: italic;
+}
+
+/* Responsive Design untuk RSVP */
+@media (max-width: 768px) {
+    .rsvp-form {
+        padding: 0 1rem;
+    }
+    
+    .radio-group {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 2rem;
+    }
+    
+    .submit-btn {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* Closing Section */
+.closing {
+    padding: 5rem 0;
+    background-color: #E8E4D9; ;
+    text-align: center;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px 0;
+    
+}
+
+.countdown-item {
+    text-align: center;
+    padding: 25px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: #d4af37;
+    margin-bottom: 5px;
+}
+
+.countdown-item p {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.closing h2 {
+    font-family: var(--third-font);
+    font-size: 3rem;
+    color: rgb(61, 67, 81);
+    margin-bottom: 1rem;
+    margin-left: 45px;
+}
+
+/* Footer */
