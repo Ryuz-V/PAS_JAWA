@@ -9,7 +9,7 @@
 {{-- BUTTON TAMBAH --}}
 <div class="mb-6">
     <a href="{{ route('admin.invitation.create') }}"
-       class="px-4 py-2 bg-brown-700 text-white rounded-lg hover:bg-brown-800 transition">
+       class="px-3 bg-gray-300 py-3 bg-brown-700 text-black rounded-md hover:bg-brown-800 transition">
         + Tambah Data
     </a>
 </div>

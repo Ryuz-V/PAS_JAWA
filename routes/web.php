@@ -4,10 +4,12 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\InvitationController;
 use App\Http\Controllers\Admin\ProdukController;
 use App\Http\Controllers\Admin\AksesorisController;
+use App\Models\Produk;
 
 
 Route::get('/', function () {
-    return view('index');
+    $produk = Produk::all(); // ambil semua produk
+    return view('index', compact('produk'));
 });
 
 Route::prefix('admin')->name('admin.')->group(function () {

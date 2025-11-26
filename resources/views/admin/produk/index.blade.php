@@ -9,11 +9,10 @@
 {{-- BUTTON TAMBAH --}}
 <div class="mb-6">
     <a href="{{ route('admin.produk.create') }}"
-       class="px-4 py-2 bg-brown-700 text-white rounded-lg hover:bg-brown-800 transition">
+       class="px-3 bg-gray-300 py-3 bg-brown-700 text-black rounded-md hover:bg-brown-800 transition">
         + Tambah Produk
     </a>
 </div>
-
 {{-- CARD WRAPPER --}}
 <div class="bg-white p-6 rounded-2xl shadow-md border">
 
@@ -44,21 +43,31 @@
                             <span class="px-3 py-1 rounded-full bg-purple-600 text-white text-sm">Aksesoris</span>
                         </td>
                         <td class="p-3 text-center flex items-center justify-center gap-2">
-                            <a href="{{ route('admin.produk.edit', $item->id) }}"
-                               class="px-3 py-1 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700">
-                                Edit
-                            </a>
 
-                            <form action="{{ route('admin.produk.destroy', $item->id) }}"
-                                  method="POST"
-                                  onsubmit="return confirm('Hapus produk ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button class="px-3 py-1 rounded-lg bg-red-600 text-white text-sm hover:bg-red-700">
-                                    Delete
-                                </button>
-                            </form>
-                        </td>
+    {{-- LIHAT --}}
+    <a href="{{ route('admin.produk.show', $item->id) }}"
+       class="px-3 py-1 rounded-lg bg-yellow-600 text-white text-sm hover:bg-yellow-700">
+        Lihat
+    </a>
+
+    {{-- EDIT --}}
+    <a href="{{ route('admin.produk.edit', $item->id) }}"
+       class="px-3 py-1 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700">
+        Edit
+    </a>
+
+    {{-- DELETE --}}
+    <form action="{{ route('admin.produk.destroy', $item->id) }}"
+          method="POST"
+          onsubmit="return confirm('Hapus produk ini?')">
+        @csrf
+        @method('DELETE')
+        <button class="px-3 py-1 rounded-lg bg-red-600 text-white text-sm hover:bg-red-700">
+            Delete
+        </button>
+    </form>
+
+</td>
                     </tr>
                 @empty
                     <tr>
@@ -81,6 +90,7 @@
                     <th class="p-3">Deskripsi</th>
                     <th class="p-3">Kategori</th>
                     <th class="p-3 text-center">Aksi</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -94,7 +104,7 @@
                             <span class="px-3 py-1 rounded-full bg-green-600 text-white text-sm">FNB</span>
                         </td>
                         <td class="p-3 text-center flex items-center justify-center gap-2">
-
+                            
                             <a href="{{ route('admin.produk.edit', $item->id) }}"
                                class="px-3 py-1 rounded-lg bg-blue-600 text-white text-sm hover:bg-blue-700">
                                 Edit

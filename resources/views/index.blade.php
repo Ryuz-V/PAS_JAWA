@@ -80,26 +80,96 @@
 <section class="product">
     <div class="container">
         <h2>Our Product</h2>
-        <p>We are delighted to share with you a selection of our favorite products that hold special meaning in our journey together. Each item has been carefully chosen to reflect our tastes and the memories we've created as a couple. We hope you find something that resonates with you as much as it does with us.</p>
+        <p>
+            We are delighted to share with you a selection of our favorite products
+            that hold special meaning in our journey together.
+        </p>
+
+        {{-- ================== AKSESORIS ================== --}}
+        <h3 style="margin-top: 40px; margin-bottom: 10px; font-size: 24px; color: #8B4513;">
+            Aksesoris
+        </h3>
+
         <div class="product-gallery">
-            <div class="product-item">
-                <img src="/asset/product/product1.jpg" alt="Product 1">
-                <h3>Product Name 1</h3>
-                <p>$29.99</p>
-            </div>
-            <div class="product-item">
-                <img src="/asset/product/product2.jpg" alt="Product 2">
-                <h3>Product Name 2</h3>
-                <p>$39.99</p>
-            </div>
-            <div class="product-item">
-                <img src="/asset/product/product3.jpg" alt="Product 3">
-                <h3>Product Name 3</h3>
-                <p>$49.99</p>
-            </div>
+
+            @forelse ($produk->where('kategori', 'aksesoris') as $item)
+                <div class="product-item">
+
+                    {{-- FOTO --}}
+                    <img 
+                        src="{{ $item->foto ? asset('storage/' . $item->foto) : asset('images/default-product.jpg') }}"
+                        alt="{{ $item->nama }}"
+                        style="object-fit: cover; width: 100%; height: 200px; border-radius: 10px;"
+                    >
+
+                    {{-- NAMA --}}
+                    <h3>{{ $item->nama }}</h3>
+
+                    {{-- STOK --}}
+                    <p>Stok: {{ $item->stok }}</p>
+
+                    {{-- KATEGORI --}}
+                    <p class="category" style="font-weight: bold; color: #8B4513;">
+                        {{ strtoupper($item->kategori) }}
+                    </p>
+
+                    {{-- DESKRIPSI --}}
+                    <p>{{ $item->deskripsi }}</p>
+
+                </div>
+            @empty
+                <p style="text-align:center; color:gray; width:100%;">
+                    Belum ada produk aksesoris.
+                </p>
+            @endforelse
+
+        </div>
+
+
+        {{-- ================== FOOD & BEVERAGE ================== --}}
+        <h3 style="margin-top: 50px; margin-bottom: 10px; font-size: 24px; color: #8B4513;">
+            Food & Beverage
+        </h3>
+
+        <div class="product-gallery">
+
+            @forelse ($produk->where('kategori', 'fnb') as $item)
+                <div class="product-item">
+
+                    {{-- FOTO --}}
+                    <img 
+                        src="{{ $item->foto ? asset('storage/' . $item->foto) : asset('images/default-product.jpg') }}"
+                        alt="{{ $item->nama }}"
+                        style="object-fit: cover; width: 100%; height: 200px; border-radius: 10px;"
+                    >
+
+                    {{-- NAMA --}}
+                    <h3>{{ $item->nama }}</h3>
+
+                    {{-- STOK --}}
+                    <p>Stok: {{ $item->stok }}</p>
+
+                    {{-- KATEGORI --}}
+                    <p class="category" style="font-weight: bold; color: #8B4513;">
+                        {{ strtoupper($item->kategori) }}
+                    </p>
+
+                    {{-- DESKRIPSI --}}
+                    <p>{{ $item->deskripsi }}</p>
+
+                </div>
+            @empty
+                <p style="text-align:center; color:gray; width:100%;">
+                    Belum ada produk FNB.
+                </p>
+            @endforelse
+
+        </div>
+
     </div>
 </section>
 
+  {{-- RSVP SECTION --}}
         <section class="rsvp">
             <div class="container">
                 <h2>RSVP</h2>

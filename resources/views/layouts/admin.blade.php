@@ -35,6 +35,11 @@
 
     {{-- MAIN CONTENT --}}
     <main class="ml-64 p-8">
+        @if(session('success'))
+    <div class="mb-4 p-3 bg-green-100 text-green-700 rounded-lg border border-green-300">
+    {{ session('success') }}
+    </div>
+    @endif
         @yield('content')
     </main>
 

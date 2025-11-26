@@ -5,7 +5,7 @@
             <div class="header">
                 <div class="logo">
                     <img src="{{ asset('images/Logo/logo2.png') }}" alt="logo">
-                    <img src="{{ asset('images/Logo/logo2.png') }}" alt="Logo">
+                    <img src="{{ asset('images/Logo/logo.png') }}" alt="Logo">
                 </div>
                 <div class="nav-link">
                     <ul>
