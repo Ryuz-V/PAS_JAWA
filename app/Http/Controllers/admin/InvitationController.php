@@ -8,6 +8,8 @@ use App\Models\Invitation;
 use Illuminate\Support\Str;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendInvitationQR;
 
 class InvitationController extends Controller
 {
@@ -27,7 +29,7 @@ class InvitationController extends Controller
         // Validasi input
         $request->validate([
             'nama' => 'required|string|max:255',
-            'email' => 'nullable|email',
+            'email' => 'nullable|email|unique:invitations,email',
             'jml_hadir' => 'required|integer|min:1',
             'message' => 'nullable|string',
         ]);
@@ -66,17 +68,18 @@ public function storeFront(Request $request)
 {
     $request->validate([
         'nama' => 'required|string|max:255',
-        'email' => 'nullable|email',
+        'email' => 'required|email|unique:invitations,email',
         'jml_hadir' => 'required|integer|min:1',
         'message' => 'nullable|string',
     ]);
 
     $code = strtoupper(Str::random(8));
 
-    $qrSvg = QrCode::format('svg')->size(300)->generate($code);
+    $qrPng = QrCode::format('svg')->size(300)->encoding('UTF-8')->generate(url('/scan/'.$code));
+$qrFileName = 'qr_' . $code . '.svg';
 
-    $qrFileName = 'qr_' . $code . '.svg';
-    Storage::disk('public')->put('qr/' . $qrFileName, $qrSvg);
+Storage::disk('public')->put('qr/' . $qrFileName, $qrPng);
+
 
     Invitation::create([
         'nama' => $request->nama,
@@ -86,7 +89,12 @@ public function storeFront(Request $request)
         'code_qr' => $code,
         'status' => 'belum',
     ]);
-
+    $qrPath = 'qr/' . $qrFileName;
+    Mail::to($request->email)->send(new SendInvitationQR(
+        $request->nama,
+        $code,
+        'qr/' . $qrFileName
+    ));
     return redirect()
         ->route('index') // sudah ada name index
         ->with([
@@ -118,11 +126,30 @@ public function scan($code)
     $inv->update([
         'status' => 'hadir'
     ]);
-
     return view('invitation.scan_result', [
         'title' => 'Presensi Berhasil!',
         'message' => 'Terima kasih, presensi Anda telah dicatat.'
     ]);
 }
+public function destroy($id)
+{
+    // Ambil data berdasarkan ID
+    $invitation = Invitation::findOrFail($id);
 
+    // Hapus file QR jika ada
+    if ($invitation->code_qr) {
+        $fileName = 'qr_' . $invitation->code_qr . '.svg';
+        if (Storage::disk('public')->exists('qr/' . $fileName)) {
+            Storage::disk('public')->delete('qr/' . $fileName);
+        }
+    }
+
+    // Hapus data dari database
+    $invitation->delete();
+
+    // Redirect ke halaman index
+    return redirect()
+        ->route('admin.invitation.index')
+        ->with('success', 'Data berhasil dihapus!');
+}
 }
